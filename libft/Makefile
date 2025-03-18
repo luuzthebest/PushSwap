@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+         #
+#    By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 05:50:08 by hounajar          #+#    #+#              #
-#    Updated: 2024/11/23 06:05:51 by hounajar         ###   ########.fr        #
+#    Updated: 2025/03/18 00:37:33 by lvvz             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,32 +23,28 @@ SRCS =	ft_atoi.c		ft_isprint.c	ft_strnstr.c 	ft_strncmp.c	ft_striteri.c	\
 		ft_isalpha.c	ft_memcpy.c		ft_strlen.c		ft_strjoin.c	ft_putendl_fd.c	\
 		ft_isascii.c	ft_memmove.c	ft_strchr.c		ft_itoa.c		ft_putnbr_fd.c	\
 		ft_isdigit.c	ft_memset.c		ft_strtrim.c 	ft_strmapi.c \
-
-BSRCS = ft_lstnew_bonus.c		ft_lstadd_front_bonus.c		ft_lstsize_bonus.c \
+		ft_lstnew_bonus.c		ft_lstadd_front_bonus.c		ft_lstsize_bonus.c \
 		ft_lstlast_bonus.c		ft_lstadd_back_bonus.c		ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c		ft_lstiter_bonus.c			ft_lstmap_bonus.c \
+		ft_lstclear_bonus.c	\
 
 OBJS = $(SRCS:.c=.o)
 
-BOBJS = $(BSRCS:.c=.o)
 
 NAME = libft.a
 
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BOBJS)
-	@$(AR) $(NAME) $(BOBJS)
 
 %.o: %.c
 	@$(CC) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJS) $(BOBJS)
+	@$(RM) $(OBJS)
 
 fclean: clean
 	@$(RM) $(NAME)

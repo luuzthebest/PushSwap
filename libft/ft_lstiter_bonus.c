@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:43:03 by hounajar          #+#    #+#             */
-/*   Updated: 2024/11/25 22:50:04 by hounajar         ###   ########.fr       */
+/*   Updated: 2025/03/18 00:34:11 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_stack *lst, void (*f)(int))
 {
-	t_list	*nxt;
+	t_stack	*nxt;
 
 	if (!lst || !f)
 		return ;

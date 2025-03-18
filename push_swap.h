@@ -3,11 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:35 by hounajar          #+#    #+#             */
-/*   Updated: 2025/02/15 10:18:47 by hounajar         ###   ########.fr       */
+/*   Updated: 2025/03/07 06:21:15 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+
+typedef struct stacks
+{
+    int num;
+    char *next;
+    char *previous;
+} stack;
