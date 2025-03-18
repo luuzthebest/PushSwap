@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 15:20:49 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/18 00:34:30 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/03/18 05:16:44 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		*ft_memcpy(void *dest, const void *src, size_t n);
 void		*ft_memset(void *s, int n, size_t c);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
-int			ft_atoi(const char *nptr);
+long int			ft_atoi(const char *nptr);
 char		*ft_itoa(int n);
 char		**ft_split(char const *s, char c);
 void		*ft_calloc(size_t nmemb, size_t size);

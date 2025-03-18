@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:32 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/18 03:53:37 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/03/18 05:58:05 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ int is_valid_num(char *str)
     }
     return (1);   
 }
-int dup_checker(t_stack *lst, int num)
+int dup_checker(t_stack *lst, long int num)
 {
+    if (num > 2147483647 || num < -2147483648)
+        return 0;
+    
     while (lst)
     {
         if (num == lst->content)
@@ -76,16 +79,19 @@ int dup_checker(t_stack *lst, int num)
     }
     return (1);
 }
-int parse(char **str, t_stack *head)
+int parse(char **str, t_stack *head) // int max/min & empty & args without ""
 {
         t_stack *node;
         int i = 1;
-        int j = 0;
-        int num;
+        long int num;
+        int j;
         char **splitted;
         while (str[i])
         {
+            j = 0;
             splitted = ft_split(str[i], ' ');
+            if (!splitted)
+                return 0;
             while (splitted[j])
             {
                 if (is_valid_num(splitted[j]))
@@ -109,18 +115,19 @@ int parse(char **str, t_stack *head)
         printf("----------stack A----------\n");
         while (head)
         {
-            printf("%i\n", head->content);
+            printf("[%i]\n", head->content);
             head = head->next;
         }
         
         return(1);
 }
+
 int main(int argc, char **argv)
 {
     t_stack *head = NULL;
     
 
-    printf("Num of Args: %d\n", argc);
+    (void)argc;
     // int i= 0;
     // while (argv[i])
     // {

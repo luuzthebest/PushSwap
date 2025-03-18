@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:21:19 by hounajar          #+#    #+#             */
-/*   Updated: 2024/11/26 01:30:36 by hounajar         ###   ########.fr       */
+/*   Updated: 2025/03/18 04:21:32 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	arr = (char **)ft_calloc((cw((char *)s, 0, c) + 1), sizeof(char *));
-	if (!arr)
+	if (!arr || cw((char *)s, 0, c) == 0)
 		return (NULL);
 	while (*s)
 	{
