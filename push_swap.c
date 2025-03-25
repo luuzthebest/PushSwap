@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:32 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/18 08:13:53 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/03/25 11:27:20 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,70 @@ int parse(char **str, t_stack **head, t_stack *node)
             splitted = ft_split(str[i], ' ');
             if (!splitted)
                 return 0;
-            filter(&splitted[j], num, head, node);
+            if (!filter(&splitted[j], num, head, node))
+            {
+                free_splitted(splitted);
+                return 0;
+            }
+            
             free_splitted(splitted);
             i++;
         }
         return(1);
 }
+void print_list(t_stack *head)
+{
+    t_stack *node = head;
+    printf("Stack: ");
+    while (node)
+    {
+        printf("%d -> ", node->content);
+        node = node->next;
+    }
+    printf("NULL\n");
+}
+
 int main(int argc, char **argv)
 {
     t_stack *head = NULL;
     t_stack *node = NULL;
+
+    node = ft_lstnew(1);
+    t_stack *node2 = ft_lstnew(4);
+    node->next = node2;
+    t_stack *node3 = ft_lstnew(6);
+    node2->next = node3;
+
     
+
 
     (void)argc;
     if (parse(argv, &head, node) == 0)
         printf("Error\n");
     else
     {
-        printf("Parsing Done Successefully");
+        printf("Parsing Done Successefully\n");
+        if (!is_sorted(head))
+        {
+            printf("not sorted\n");
+        }
     }
     
+    printf("---- stack a -----\n");
+    print_list(head);
+    
+    // printf("---- stack b -----\n");
+    // print_list(node);
+    
+   rotate(&head);
+    
+    printf("---- stack a -----\n");
+    print_list(head);
+    
+    // printf("---- stack b -----\n");
+    // print_list(node);
+    
     free_stack(&head);
+    free_stack(&node);
     return 1;
 }

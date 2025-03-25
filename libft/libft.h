@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 15:20:49 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/18 05:16:44 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/03/25 11:24:25 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_stack
 {
 	int			content;
 	struct s_stack	*next;
-	struct s_stack	*previous;
 }	t_stack;
 int			ft_toupper(int c);
 int			ft_tolower(int c);

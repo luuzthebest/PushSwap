@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:45:48 by lvvz              #+#    #+#             */
-/*   Updated: 2025/03/18 07:46:33 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/03/20 14:01:29 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,22 @@ void free_splitted(char **splitted)
     while (splitted[j])
         free(splitted[j++]);
     free(splitted);
+}
+int is_sorted(t_stack *head)
+{
+    int i = 0;
+    int size = ft_lstsize(head);
+    while (head->next)
+    {
+        if (head->content < head->next->content)
+            i++;
+        head = head->next;
+    }
+    if (i == size-1)
+        return (1);
+    else
+        return 0;
+    
+    return i;
+    
 }
