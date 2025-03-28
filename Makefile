@@ -6,7 +6,7 @@
 #    By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 12:44:47 by hounajar          #+#    #+#              #
-#    Updated: 2025/03/25 00:22:20 by lvvz             ###   ########.fr        #
+#    Updated: 2025/03/25 14:15:52 by lvvz             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 NAME = push_swap
 
-SRCS = push_swap.c utils.c ops.c ops_base.c ops_r.c
+SRCS = push_swap.c utils.c ops.c ops_base.c ops_r.c lil_sort.c
 
 OBJS = $(SRCS:.c=.o)
 

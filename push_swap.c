@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:32 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/25 11:27:20 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/03/28 02:37:25 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,35 +99,42 @@ int main(int argc, char **argv)
 {
     t_stack *head = NULL;
     t_stack *node = NULL;
-
-    node = ft_lstnew(1);
-    t_stack *node2 = ft_lstnew(4);
-    node->next = node2;
-    t_stack *node3 = ft_lstnew(6);
-    node2->next = node3;
+    int size;
+    // node = ft_lstnew(1);
+    // t_stack *node2 = ft_lstnew(4);
+    // node->next = node2;
+    // t_stack *node3 = ft_lstnew(6);
+    // node2->next = node3;
 
     
 
 
     (void)argc;
     if (parse(argv, &head, node) == 0)
-        printf("Error\n");
+        printf("Error\n"); // std error
     else
     {
+        size = ft_lstsize(head);
         printf("Parsing Done Successefully\n");
+        printf("---- stack a -----\n");
+        print_list(head);
         if (!is_sorted(head))
         {
+            if (size <= 5)
+            {
+                sort_small(&head, &node, size);
+            } 
+            
+            
             printf("not sorted\n");
         }
     }
     
-    printf("---- stack a -----\n");
-    print_list(head);
     
     // printf("---- stack b -----\n");
     // print_list(node);
     
-   rotate(&head);
+//    rotate(&head);
     
     printf("---- stack a -----\n");
     print_list(head);
