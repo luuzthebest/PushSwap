@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:45:48 by lvvz              #+#    #+#             */
-/*   Updated: 2025/03/20 14:01:29 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:52:54 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,38 @@ int is_sorted(t_stack *head)
         return (1);
     else
         return 0;
-    
     return i;
-    
+}
+void ft_error()
+{
+    ft_putstr_fd("Error\n", 2);
+    exit(1);
+}
+int inst_check(char *instruction, t_stack **a, t_stack **b)
+{
+    if (ft_strncmp(instruction, "pa\n", ft_strlen(instruction)) == 0)
+        pa(a, b, 0);
+    else if (ft_strncmp(instruction, "pb\n", ft_strlen(instruction)) == 0)
+        pb(a, b, 0);
+    else if (ft_strncmp(instruction, "sa\n", ft_strlen(instruction)) == 0)
+        sa(a, 0);
+    else if (ft_strncmp(instruction, "sb\n", ft_strlen(instruction)) == 0)
+        sb(b, 0);
+    else if (ft_strncmp(instruction, "ss\n", ft_strlen(instruction)) == 0)
+        ss(a, b, 0);
+    else if (ft_strncmp(instruction, "ra\n", ft_strlen(instruction)) == 0)
+        ra(a, 0);
+    else if (ft_strncmp(instruction, "rb\n", ft_strlen(instruction)) == 0)
+        rb(b, 0);
+    else if (ft_strncmp(instruction, "rr\n", ft_strlen(instruction)) == 0)
+        rr(a, b, 0);
+    else if (ft_strncmp(instruction, "rra\n", ft_strlen(instruction)) == 0)
+        rra(a, 0);
+    else if (ft_strncmp(instruction, "rrb\n", ft_strlen(instruction)) == 0)
+        rrb(b, 0);
+    else if (ft_strncmp(instruction, "rrr\n", ft_strlen(instruction)) == 0)
+        rrr(a, b, 0);
+    else
+        return 0;
+    return 1;
 }

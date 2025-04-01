@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 10:18:32 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/31 18:33:36 by lvvz             ###   ########.fr       */
+/*   Created: 2025/03/31 00:57:26 by lvvz              #+#    #+#             */
+/*   Updated: 2025/04/01 17:54:07 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "libft/libft.h"
+#include "push_swap_bonus.h"
+
 
 int is_valid_num(char *str)
 {
@@ -28,6 +28,7 @@ int is_valid_num(char *str)
     }
     return (1);   
 }
+
 int dup_checker(t_stack *lst, long int num)
 {
     if (num > 2147483647 || num < -2147483648)
@@ -43,6 +44,7 @@ int dup_checker(t_stack *lst, long int num)
     }
     return (1);
 }
+
 int filter(char **splitted, long int num, t_stack **head, t_stack *node)
 {
     int j = 0;
@@ -83,64 +85,29 @@ int parse(char **str, t_stack **head, t_stack *node)
         }
         return(1);
 }
-void print_list(t_stack *head)
-{
-    t_stack *node = head;
-    printf("Stack: ");
-    while (node)
-    {
-        printf("%d -> ", node->content);
-        node = node->next;
-    }
-    printf("NULL\n");
-}
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-    t_stack *head = NULL;
-    t_stack *node = NULL;
-    int size;
-    
+    t_stack *head;
+    t_stack *node;
+    char *instructions;
+
+    node = NULL;
+    head = NULL;
     if (argc < 2)
         return (0);
-    
     if (parse(argv, &head, node) == 0)
         ft_error();
-    else
-    {
-        size = ft_lstsize(head);
-        // printf("Parsing Done Successefully\n");
-        // printf("---- stack a -----\n");
-        // print_list(head);
-        if (!is_sorted(head))
+    instructions = get_next_line(0);
+    while (instructions)
         {
-            if (size <= 5)
-            {
-                sort_small(&head, &node, size);
-            } 
-            else
-            {
-                sort_big(&head, &node, size);    
-            }
-            
-            
-            // printf("not sorted\n");
+            inst_check(instructions, &head, &node);
+            free(instructions);
+            instructions = get_next_line(0);
         }
-    }
-    
-    
-    // printf("---- stack b -----\n");
-    // print_list(node);
-    
-//    rotate(&head);
-    
-    // printf("---- stack a -----\n");
-    // print_list(head);
-    
-    // printf("---- stack b -----\n");
-    // print_list(node);
-    
-    free_stack(&head);
-    free_stack(&node);
+    if (is_sorted(head) && !node)
+        ft_putstr_fd("OK\n", 1);
+    else
+        ft_putstr_fd("KO\n", 1);    
     return 1;
 }

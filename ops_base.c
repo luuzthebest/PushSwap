@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:27:07 by lvvz              #+#    #+#             */
-/*   Updated: 2025/03/25 11:15:54 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:02:02 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,10 @@ void r_rotate(t_stack **a)
     (*a) = last;
     second_to_last->next = NULL;
 }
-void rrr(t_stack **a, t_stack **b)
+void rrr(t_stack **a, t_stack **b, int trace)
 {
     r_rotate(a);
     r_rotate(b);
-    ft_putstr_fd("rrr\n", 1);
+    if (trace == 1)
+        ft_putstr_fd("rrr\n", 1);
 }

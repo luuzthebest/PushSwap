@@ -6,14 +6,15 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:15:30 by lvvz              #+#    #+#             */
-/*   Updated: 2025/03/28 03:26:34 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:05:13 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 void sort_two(t_stack **a)
 {
-    sa(a);
+    if (!is_sorted(*a))
+        sa(a, 1);
 }
 void sort_three(t_stack **a)
 {
@@ -25,41 +26,41 @@ void sort_three(t_stack **a)
     second = (*a)->next->content;
     last = (*a)->next->next->content;
     if (first > last && second < last)
-        ra(a);
+        ra(a, 1);
     else if (first > second && first > last && second > last)
     {
-        ra(a);
-        sa(a);
+        ra(a, 1);
+        sa(a, 1);
     } 
     else if (first < second && second > last && first > last)
-        rra(a);
+        rra(a, 1);
     else if (second > first && second > last && first < last)
     {
-        rra(a);
-        sa(a);
+        rra(a, 1);
+        sa(a, 1);
     } 
     else if (first > second && first < last)
-        sa(a);
+        sa(a, 1);
 }
 void pb_min(t_stack **a, t_stack **b, int offset)
 {
     int size;
 
     size = ft_lstsize(*a);
-    if ((size / 2) <= offset)
+    if ((size / 2) >= offset)
     {
         while (offset--)
-            ra(a);
+            ra(a, 1);
     }
     else 
     {
         while (offset++ < size)
-            rra(a);
+            rra(a, 1);
     }
     if (is_sorted(*a))
         return;
     
-    pb(a, b);
+    pb(a, b, 1);
     
 }
 void s_min(t_stack **a, t_stack **b)
@@ -94,7 +95,7 @@ void sort_small(t_stack **a, t_stack **b, int size)
         sort_three(a);
     else
     {
-         if (size == 4)
+        if (size == 4)
             s_min(a, b);
         else if (size == 5)
         {
@@ -102,8 +103,8 @@ void sort_small(t_stack **a, t_stack **b, int size)
             s_min(a, b);
         }
         sort_three(a);
-        pa(a, b);
-        pa(a, b);
+        pa(a, b, 1);
+        pa(a, b, 1);
     }
 }
     

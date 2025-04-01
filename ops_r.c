@@ -6,35 +6,40 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 21:53:27 by lvvz              #+#    #+#             */
-/*   Updated: 2025/03/25 11:17:24 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:02:44 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(t_stack **a)
+void ra(t_stack **a, int trace)
 {
     rotate(a);
-    ft_putstr_fd("ra\n", 1);
+    if (trace == 1)
+        ft_putstr_fd("ra\n", 1);
 }
-void rb(t_stack **b)
+void rb(t_stack **b, int trace)
 {
     rotate(b);
-    ft_putstr_fd("rb\n", 1);
+    if (trace == 1)
+        ft_putstr_fd("rb\n", 1);
 }
-void rr(t_stack **a, t_stack **b)
+void rr(t_stack **a, t_stack **b, int trace)
 {
     rotate(a);
     rotate(b);
-    ft_putstr_fd("rr\n", 1);
+    if (trace == 1)
+        ft_putstr_fd("rr\n", 1);
 }
-void rra(t_stack **a)
+void rra(t_stack **a, int trace)
 {
     r_rotate(a);
-    ft_putstr_fd("rra\n", 1);
+    if (trace == 1)
+        ft_putstr_fd("rra\n", 1);
 }
-void rrb(t_stack **b)
+void rrb(t_stack **b, int trace)
 {
     r_rotate(b);
-    ft_putstr_fd("rrb\n", 1);
+    if (trace == 1)
+        ft_putstr_fd("rrb\n", 1);
 }

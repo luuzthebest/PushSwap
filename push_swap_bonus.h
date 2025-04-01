@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:35 by hounajar          #+#    #+#             */
-/*   Updated: 2025/04/01 17:01:36 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:53:39 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft/libft.h"
+#include <fcntl.h>
 
 
 
@@ -39,10 +40,16 @@ void rb(t_stack **b, int trace);
 void ra(t_stack **a, int trace);
 void rrr(t_stack **a, t_stack **b, int trace);
 
-
 void sort_two(t_stack **a);
 void sort_three(t_stack **a);
 void sort_small(t_stack **a, t_stack **b, int size);
 void sort_big(t_stack **a, t_stack **b, int size);
 
 # define BUFFER_SIZE 1
+size_t	gnl_strlcpy(char *dst, const char *src, size_t size);
+int	gnl_strchr(char *s, int c);
+size_t	gnl_strlen(const char *str);
+char	*gnl_strdup(const char *s);
+char	*gnl_strjoin(char *s1, char *s2);
+char	*get_next_line(int fd);
+int inst_check(char *instruction, t_stack **a, t_stack **b);
