@@ -6,141 +6,65 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:32 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/31 18:33:36 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/01 18:40:37 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-int is_valid_num(char *str)
+void	fill_arr(t_stack *a, int *arr)
 {
-    int i = 0;
-    while (str[i])
-    {
-        if (str[i] == '+' || str[i] == '-')
-            i++;
-        if (!str[i])
-            return (0);
-        if (str[i] < '0' || str[i] > '9')
-            return 0;
-        i++;
-    }
-    return (1);   
-}
-int dup_checker(t_stack *lst, long int num)
-{
-    if (num > 2147483647 || num < -2147483648)
-        return 0;
-    
-    while (lst)
-    {
-        if (num == lst->content)
-        {
-            return (0);
-        }
-        lst = lst->next;
-    }
-    return (1);
-}
-int filter(char **splitted, long int num, t_stack **head, t_stack *node)
-{
-    int j = 0;
-    while (splitted[j])
-            {
-                if (is_valid_num(splitted[j]))
-                {
-                    num = ft_atoi(splitted[j]);
-                    if (!dup_checker(*head, num))
-                        return (0);
-                    node = ft_lstnew(num);
-                    ft_lstadd_back(head, node);
-                    j++;
-                } else
-                    return (0);
-            }
-            return 1;
-}
-int parse(char **str, t_stack **head, t_stack *node)
-{
-        int i = 1;
-        long int num = 0;
-        int j = 0;
-        char **splitted;
-        while (str[i])
-        {
-            splitted = ft_split(str[i], ' ');
-            if (!splitted)
-                return 0;
-            if (!filter(&splitted[j], num, head, node))
-            {
-                free_splitted(splitted);
-                return 0;
-            }
-            
-            free_splitted(splitted);
-            i++;
-        }
-        return(1);
-}
-void print_list(t_stack *head)
-{
-    t_stack *node = head;
-    printf("Stack: ");
-    while (node)
-    {
-        printf("%d -> ", node->content);
-        node = node->next;
-    }
-    printf("NULL\n");
+	while (a)
+	{
+		*arr++ = a->content;
+		a = a->next;
+	}
 }
 
-int main(int argc, char **argv)
+void	sort_arr(int *arr, int size)
 {
-    t_stack *head = NULL;
-    t_stack *node = NULL;
-    int size;
-    
-    if (argc < 2)
-        return (0);
-    
-    if (parse(argv, &head, node) == 0)
-        ft_error();
-    else
-    {
-        size = ft_lstsize(head);
-        // printf("Parsing Done Successefully\n");
-        // printf("---- stack a -----\n");
-        // print_list(head);
-        if (!is_sorted(head))
-        {
-            if (size <= 5)
-            {
-                sort_small(&head, &node, size);
-            } 
-            else
-            {
-                sort_big(&head, &node, size);    
-            }
-            
-            
-            // printf("not sorted\n");
-        }
-    }
-    
-    
-    // printf("---- stack b -----\n");
-    // print_list(node);
-    
-//    rotate(&head);
-    
-    // printf("---- stack a -----\n");
-    // print_list(head);
-    
-    // printf("---- stack b -----\n");
-    // print_list(node);
-    
-    free_stack(&head);
-    free_stack(&node);
-    return 1;
+	int	i;
+	int	temp;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (arr[i] > arr[i + 1])
+		{
+			temp = arr[i];
+			arr[i] = arr[i + 1];
+			arr[i + 1] = temp;
+			i = -1;
+		}
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*head;
+	t_stack	*node;
+	int		size;
+
+	node = NULL;
+	head = NULL;
+	if (argc < 2)
+		return (0);
+	if (parse(argv, &head, node) == 0)
+		ft_error();
+	else
+	{
+		size = ft_lstsize(head);
+		if (!is_sorted(head))
+		{
+			if (size <= 5)
+				sort_small(&head, &node, size);
+			else
+				sort_big(&head, &node, size);
+		}
+	}
+	free_stack(&head);
+	free_stack(&node);
+	return (1);
 }

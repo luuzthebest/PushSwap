@@ -6,7 +6,7 @@
 #    By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 12:44:47 by hounajar          #+#    #+#              #
-#    Updated: 2025/04/01 16:46:15 by lvvz             ###   ########.fr        #
+#    Updated: 2025/04/01 18:44:07 by lvvz             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ NAME = push_swap
 
 BONUS_NAME = checker
 
-SRCS = push_swap.c utils.c ops.c ops_base.c ops_r.c lil_sort.c big_sort.c
+SRCS = push_swap.c utils.c ops.c ops_base.c ops_r.c lil_sort.c big_sort.c p_utils.c
 
-B_SRCS = checker.c gnl.c utils.c gnl_utils.c ops.c ops_base.c ops_r.c
+B_SRCS = checker.c gnl.c utils.c gnl_utils.c ops.c ops_base.c ops_r.c p_utils.c
 
 MAKEFLAGS += --no-print-directory
 

@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:02:27 by hounajar          #+#    #+#             */
-/*   Updated: 2025/03/18 05:57:43 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:56:45 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long int	ft_atoi(const char *nptr)
 {
 	long int	result;
-	int	sign;
+	int			sign;
 
 	sign = 1;
 	result = 0;
