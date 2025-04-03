@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:30:46 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/01 18:52:51 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/03 18:22:23 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	parse(char **str, t_stack **head, t_stack *node)
 	{
 		splitted = ft_split(str[i], ' ');
 		if (!splitted)
-			return (0);
+			return (free_stack(head), 0);
 		if (!filter(&splitted[j], num, head, node))
 		{
 			free_splitted(splitted);
