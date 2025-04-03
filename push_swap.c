@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:32 by hounajar          #+#    #+#             */
-/*   Updated: 2025/04/01 18:40:37 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/03 21:05:47 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ int	main(int argc, char **argv)
 	}
 	free_stack(&head);
 	free_stack(&node);
-	return (1);
+	return (0);
 }

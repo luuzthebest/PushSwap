@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 00:57:26 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/03 10:47:29 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/03 21:08:21 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("KO\n", 1);
 	free_stack(&head);
 	free_stack(&node);
-	return (1);
+	return (0);
 }

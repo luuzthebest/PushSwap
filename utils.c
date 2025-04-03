@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:45:48 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/03 10:53:01 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/03 22:11:18 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	free_stack(t_stack **head)
 {
 	t_stack	*temp;
-
 
 	while (*head)
 	{
@@ -44,7 +43,6 @@ int	is_sorted(t_stack *head)
 	i = 0;
 	if (!head)
 		return (0);
-	
 	size = ft_lstsize(head);
 	while (head->next)
 	{

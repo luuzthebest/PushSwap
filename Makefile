@@ -6,7 +6,7 @@
 #    By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 12:44:47 by hounajar          #+#    #+#              #
-#    Updated: 2025/04/01 18:44:07 by lvvz             ###   ########.fr        #
+#    Updated: 2025/04/03 22:07:47 by lvvz             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,18 +36,23 @@ bonus: $(LIBFT) $(BONUS_NAME)
 
 	
 $(LIBFT):
+	@echo LIBFT LOADING.. 
 	@make -C $(LIBFT_DIR)
 
 $(NAME): $(SRCS) $(LIBFT)
+	@echo PUSH_SWAP LOADING..
 	@$(CC) $(SRCS) $(LIBFT) -o $(NAME)
 
 $(BONUS_NAME): $(B_SRCS) $(LIBFT)
+	@echo BONUS LOADING..
 	@$(CC) $(B_SRCS) $(LIBFT) -o $(BONUS_NAME)
 
 clean:
+	@echo CLEANING..
 	@make -C $(LIBFT_DIR) clean
 
 fclean: clean
+	@echo FULL CLEANING..
 	@make -C $(LIBFT_DIR) fclean
 	@$(RM) $(NAME) $(BONUS_NAME)
 
