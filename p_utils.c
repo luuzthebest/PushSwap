@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:30:46 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/03 22:11:51 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/03 23:37:50 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	is_valid_num(char *str)
 	int	i;
 
 	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
-		if (str[i] == '+' || str[i] == '-')
-			i++;
-		if (!str[i])
-			return (0);
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
 		i++;
