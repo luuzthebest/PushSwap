@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:35 by hounajar          #+#    #+#             */
-/*   Updated: 2025/04/04 09:43:33 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/06 11:48:51 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <fcntl.h>
 
 int		parse(char **str, t_stack **head, t_stack *node);
-void	ft_error(void);
+void	ft_error(t_stack **a, t_stack **b);
 
 void	free_splitted(char **splitted);
 void	free_stack(t_stack **head);

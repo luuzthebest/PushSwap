@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:18:32 by hounajar          #+#    #+#             */
-/*   Updated: 2025/04/03 21:05:47 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/06 11:49:14 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (parse(argv, &head, node) == 0)
-		ft_error();
+		ft_error(&head, &node);
 	else
 	{
 		size = ft_lstsize(head);

@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:45:48 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/03 22:11:18 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/06 11:47:37 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,10 @@ int	is_sorted(t_stack *head)
 	return (i);
 }
 
-void	ft_error(void)
+void	ft_error(t_stack **a, t_stack **b)
 {
+	free_stack(a);
+	free_stack(b);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
